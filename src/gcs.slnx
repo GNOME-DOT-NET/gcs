@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Gcs.Bindings/Gcs.Bindings.csproj" />
+  <Project Path="Gcs.Core/Gcs.Core.csproj" />
+  <Project Path="Gcs.Generator/Gcs.Generator.csproj" />
+  <Project Path="Gcs.Services/Gcs.Services.csproj" />
+  <Project Path="Gcs.Shell/Gcs.Shell.csproj" />
+</Solution>

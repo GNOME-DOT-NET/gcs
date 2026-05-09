@@ -1,0 +1,10 @@
+**/[Bb]in/
+**/[Ob]j/
+**/*.so
+**/*.dll
+**/*.pdb
+**/*.cache
+**/*.o
+**/*.exports
+**/*.json
+**/*.rsp

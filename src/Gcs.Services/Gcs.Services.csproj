@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+  <ProjectReference Include="..\Gcs.Core\Gcs.Core.csproj"/>
+  <ProjectReference Include="..\Gcs.Bindings\Gcs.Bindings.csproj"/>
+  </ItemGroup>
+
+</Project>
