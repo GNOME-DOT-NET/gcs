@@ -1,0 +1,57 @@
+name: .NET Build & Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    container:
+      image: debian:13
+
+    steps:
+    - name: Check system
+      run: cat /etc/os-release
+
+    - name: Prepare Debian for .NET
+      run: |
+        apt-get update
+        apt-get install -y sudo curl libicu-dev
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0'
+
+    - name: Check dotnet version
+      run: dotnet --version
+
+    - name: Check and install Native AOT dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang zlib1g-dev libicu-dev
+
+    - name: Check and install dependecies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential clang zlib1g-dev libicu-dev pkg-config \
+          libglib2.0-dev libgirepository-1.0-dev libcairo2-dev libpango1.0-dev \
+          libgraphene-1.0-dev libgdk-pixbuf-2.0-dev libgtk-4-dev libadwaita-1-dev \
+          libmutter-16-dev libclutter-1.0-dev libcogl-dev libatk1.0-dev \
+          libdbus-1-dev libxml2-utils
+
+    - name: Restore dependecies
+      run: dotnet restore
+
+    - name: Publish
+      run: dotnet publish -r linux-x64 -c Release --no-restore /p:PublishAot=false /p:PublishAotInsideProject=true
+
+    - name: Test
+      run: dotnet test --no-build --configuration Release --verbosity normal

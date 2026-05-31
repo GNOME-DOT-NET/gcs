@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/*.so
+**/*.dll
+**/*.pdb
+**/*.cache
+**/*.o
+**/*.exports
+**/*.json
+**/*.rsp

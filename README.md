@@ -55,8 +55,8 @@ GCS is in **alpha**. Core infrastructure is being written. Nothing is installabl
 
 **Project Roadmap**
 - [x] **Architecture defined**
-- [ ] **Gcs.Core: NativeAOT Bootloader** – Configuring the project as `NativeLibrary` and implementing `[UnmanagedCallersOnly]` for `gcs_init`.
-- [ ] **Gcs.Core: GLib MainLoop** – Mapping `g_main_context` and taking control of the Shell event loop directly in C#.
+- [x] **Gcs.Core: NativeAOT Bootloader** – Configuring the project as `NativeLibrary` and implementing `[UnmanagedCallersOnly]` for `gcs_init`.
+- [x] **Gcs.Core: GLib MainLoop** – Mapping `g_main_context` and taking control of the Shell event loop directly in C#.
 - [ ] **Gcs.Generator: GIR XML Parser** – Engine parsing `.gir` files from /usr/share/gir-1.0/ to extract structures, methods, and signals.
 - [ ] **Gcs.Generator: Type Mapping & Bridge** – Building a type translator (C → .NET) and `[LibraryImport]` attribute generator.
 - [ ] **Gcs.Bindings:** – Generating mappings for the stack: 
